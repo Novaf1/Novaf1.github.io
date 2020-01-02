@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora Ahorro Programado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="calstyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <p>Calcula tu Ahorro</p>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12">
+                <form name="calculadora">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <label for="divMoneda">¿En que moneda ahorrara?</label>
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-lg-6">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                    
+                                    <div id="divMoneda" class="input-group">
+                                        <div class="input-group-append customCheck fullwidth">
+                                            <label class="blue halfwidth"><input type="radio" name="currency" onchange="calculo()" value="usd" checked><span>Dolares ($)</span></label>
+                                            <label class="blue halfwidth"><input type="radio" name="currency" onchange="calculo()" value="cor"><span>Cordobas (C$)</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                    <label for="divMonto">¿Cuanto podra ahorrar?</label></br>
+                                    <div id="divMonto" class="input-group">
+                                        <input id="txtCantidad" class="halfwidth" placeholder="10" aria-label="10" onKeyUp="calculo()"  type="text" class="form-control" name="monthlySaving" value="10" onblur="if(this.value == '') { this.value='10'}" onfocus="if (this.value == '10') {this.value=''}">
+                                        <div class="input-group-append customCheck halfwidth" >
+                                            <label class="blue"><input type="radio" name="frequency" value="1" onchange="calculo()"><span>Mensual</span></label>
+                                            <label class="blue"><input type="radio" name="frequency" value="2" onchange="calculo()" checked><span>Quincenal</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                    <label for="divPlazo">¿Por cuanto tiempo?</label></br>
+                                    <div id="divPlazo" class="input-group">
+                                        <input id="txtPlazo" class="halfwidth" placeholder="10" aria-label="10" onKeyUp="calculo()"  type="text" class="form-control">
+                                        <div class="input-group-append customCheck halfwidth">
+                                            <label class="blue fullwidth"><input type="radio" name="timeterm" value="1" disabled><span>Meses</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-6 d-flex justify-content-center align-items-center grayBackground">
+                            <div id="spanResult" class="text-center" style="display: none;">
+                                <p class="noBottomMargin">Tu ahorro final sera de</p>
+                                <p class="finalCurrency"><b id="AhorroFinal">ChorrocientosMil</b></p>
+                                <p>con el <b><span id="IdPlan"></span></b></p>
+                                <button type="button" class="btn btn-letsgo">¡Empecemos!</button>
+                            </div>
+                            <div id="spanValidation" class="text-center" style="display: none;">
+                                <p id="validationMessage"></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="cal.js" type="text/javascript"></script>
+</html>
